@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Distance Matrix API" icon-name="standard:location">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Source Address" value={sourceAddress} onchange={handleSourceAddressChange}></lightning-input>
+            <lightning-input label="Destination Address" value={destinationAddress} onchange={handleDestinationAddressChange}></lightning-input>
+            <lightning-combobox label="Travel Mode" options={travelModes} value={selectedTravelMode} onchange={handleTravelModeChange}></lightning-combobox><br/>
+            <lightning-button variant="brand" label="Calculate Distance" onclick={calculateDistance}></lightning-button><br/>
+            <template if:true={isResultValid}>
+                <lightning-input label="Duration:" value={duration} readonly></lightning-input>
+            </template>
+            <template if:true={isErrorOccured}>
+                <lightning-input  value={errorMessage} readonly></lightning-input>
+            </template>
+            
+        </div>
+    </lightning-card>
+</template>
